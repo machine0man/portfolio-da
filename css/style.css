@@ -1,0 +1,295 @@
+/* ===== Root Variables ===== */
+:root {
+    --bg-main: #222634;
+    --bg-card: #0000000d;
+    --accent: #259a57;
+    --text-main: #f1f5f9;
+    --text-dim: #94a3b8;
+    --border: #334155;
+}
+
+/* ===== Canvas Fullscreen Background ===== */
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* behind all content */
+    background-color: var(--bg-main);
+}
+
+
+/* ===== Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* Highlight key words with accent color */
+.accent-text {
+    color: var(--accent);
+    font-weight: 600; /* optional: makes highlighted words stand out */
+}
+
+
+/* ===== Container ===== */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 0;
+}
+
+/* ===== Navbar Container ===== */
+.header {
+    background: rbgsa(0, 0, 0, 0); 
+    padding: 10px 0; /* more space for outer outline */
+    display: flex;
+    justify-content: center;
+}
+
+/* Outer circular/pill outline */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 12px 50px; /* inner padding */
+    border-radius: 50px; /* pill shape */
+    
+    background: rgba(255, 255, 255, 0.1); /* semi-transparent glass */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* subtle outline */
+    backdrop-filter: blur(12px); /* frosted glass effect */
+    -webkit-backdrop-filter: blur(12px); /* Safari support */
+    
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15), /* soft outer shadow */
+                inset 0 0 10px rgba(255,255,255,0.1); /* subtle inner glow */
+    
+    transition: all 0.3s ease;
+
+    
+    /* Sticky on top */
+    position: sticky;
+    top: 10px; 
+    z-index: 1000; 
+
+}
+
+
+/* Individual links */
+.nav-container a {
+    position: relative; /* for underline */
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 600;
+    padding: 10px 15px;
+    transition: color 0.3s ease;
+}
+
+/* Underline animation */
+.nav-container a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 0%;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.nav-container a:hover::after {
+    width: 70%;
+}
+
+
+
+/* ===== Section Titles ===== */
+.section-title {
+    font-size: 28px;
+    margin-bottom: 40px;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* ===== About Layout ===== */
+.about-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+/* Left Side */
+.about-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile-image img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;      /* circular profile picture */
+    border: 3px solid var(--accent);
+    display: block;           /* ensures proper centering */
+    margin: 0 auto;           /* horizontally center */
+}
+
+.bio {
+    text-align: center;   /* centers the text only */
+    max-width: 600px;     /* optional: prevents super wide lines */
+    margin-top: 10px;     /* spacing from the image */
+}
+
+.bio h1 {
+    margin-bottom: 10px;
+    color: var(--text-main);
+}
+
+.bio p {
+    color: var(--text-dim);
+    line-height: 1.6;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); /* narrower cards */
+    gap: 20px;
+}
+
+.skill-card {
+    background: var(--bg-card);
+    border-radius: 12px;
+    height: 140px; /* taller card */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* text anchored at bottom */
+    align-items: center;         /* centers image horizontally */
+    padding: 10px;
+    text-align: center;
+    color: var(--text-main);
+    border: 2px solid var(--accent); /* visible border */
+}
+
+.skill-card img {
+    padding-top: 20px;
+    width: 50px;       /* size of image */
+    display: block;    /* ensures proper centering */
+    margin: 0 auto;    /* horizontally centers image */
+    margin-bottom: auto; /* pushes text to bottom */
+}
+
+.skill-card span {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Remove hover effect entirely */
+.skill-card:hover {
+    transform: none;
+}
+
+
+/* ===== Projects ===== */
+.projects-grid {
+    display: grid;
+    gap: 25px;
+}
+
+.project-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+.project-card h3 {
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    color: var(--text-dim);
+}
+
+.project-card:hover {
+    border-color: var(--accent);
+}
+
+/* ===== Footer ===== */
+.footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid var(--border);
+    background: var(--bg-card);
+    font-size: 14px;
+    color: var(--text-dim);
+}
+
+
+footer {
+    background: transparent; /* no color */
+    text-align: center;       /* center all content */
+    padding: 20px 10px;
+    color: var(--text-main);
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+footer .connect-text {
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+footer .social-links {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap; /* wrap on small screens */
+}
+
+footer .social-links a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+footer .social-links a img {
+    width: 20px;
+    height: 20px;
+}
+
+footer .social-links a:hover {
+    color: var(--accent); /* subtle hover accent */
+}
+
+
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .about-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-container {
+        justify-content: center;
+    }
+}

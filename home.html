@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harjot Singh | Data Analyst</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<canvas id="bg-canvas"></canvas>
+<body>
+
+
+    
+
+    <!-- ===== Header ===== -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+               <!-- <a href="interests.html">Interests</a>-->
+                <a href="#connect">Connect</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ===== About Section ===== -->
+        <section id="about" class="about-section">
+            <div class="container">
+
+                <h2 class="section-title">About</h2>
+
+                <div class="about-layout">
+
+                    <!-- Left Side -->
+                    <div class="about-left">
+
+                        <div class="profile-image">
+                            <img src="images/imgimg.jpeg" alt="Harjot Singh">
+                        </div>
+
+                      <div class="bio">
+    <h1>Harjot Singh</h1>
+    <p>
+        I'm a passionate <span class="accent-text">Data Analyst</span> with experience in 
+        <span class="accent-text">SQL</span>, <span class="accent-text">Python</span>, 
+        and <span class="accent-text">advanced analytics</span>. I enjoy transforming raw data 
+        into meaningful insights to support <span class="accent-text">data-driven decision-making</span>. 
+        I have a strong interest in <span class="accent-text">cloud platforms</span> and building 
+        solutions that solve real-world problems. Outside of work, I enjoy 
+        <span class="accent-text">competitive gaming</span>, exploring the <span class="accent-text">cosmos</span>, 
+        and diving into <span class="accent-text">psychology</span> and <span class="accent-text">philosophy</span>. 
+        I'm always eager to <span class="accent-text">learn</span>, experiment, and connect with 
+        like-minded individuals to grow both professionally and personally.
+    </p>
+</div>
+
+
+                    </div>
+
+                    <!-- Right Side -->
+                    <div class="about-right">
+
+                        <div class="skills-grid">
+
+                            <div class="skill-card">
+                                <img src="images/sql.png" alt="SQL">
+                                <span>SQL</span>
+                            </div>
+
+                            <div class="skill-card">
+                                <img src="images/python.png" alt="Python">
+                                <span>Python</span>
+                            </div>
+
+                            <div class="skill-card">
+                                <img src="images/excel.png" alt="Excel">
+                                <span>Excel</span>
+                            </div>
+
+                            <div class="skill-card">
+                                <img src="images/tableau.png" alt="Tableau">
+                                <span>Tableau</span>
+                            </div>
+
+                            <div class="skill-card">
+                                <img src="images/powerbi.png" alt="Power BI">
+                                <span>Power BI</span>
+                            </div>
+
+                            <div class="skill-card">
+                                <img src="images/aws.png" alt="AWS">
+                                <span>AWS</span>
+                            </div>
+
+                            <div class="skill-card">
+                                <img src="images/azure.jpg" alt="Azure">
+                                <span>Azure</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== Projects Section ===== -->
+        <section id="projects" class="projects-section">
+            <div class="container">
+
+                <h2 class="section-title">Projects</h2>
+
+                <div class="projects-grid">
+
+                    <div class="project-card">
+                        <h3>Sales Analysis Dashboard</h3>
+                        <p>
+                            Built SQL queries to analyze sales trends and created interactive 
+                            dashboards in Tableau to visualize KPIs and business insights.
+                        </p>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>Crypto Market Analysis</h3>
+                        <p>
+                            Conducted Python-based analysis of cryptocurrency transaction volumes 
+                            across quarters to identify growth patterns and market trends.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+   <footer>
+    <p id = "connect"class="connect">Connect with me</p>
+    <div class="social-links">
+        <a href="https://github.com/machine0man" target="_blank" rel="noopener">
+            <img src="images/github.png" alt="GitHub"> GitHub
+        </a> 
+        <a href="https://www.linkedin.com/in/machine0man" target="_blank" rel="noopener">
+            <img src="images/linkedin.png" alt="LinkedIn"> LinkedIn
+        </a> 
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener">
+            <img src="images/instagram.png" alt="Instagram"> Instagram
+        </a>
+    </div>
+</footer>
+
+
+
+   <script>
+const canvas = document.getElementById("bg-canvas");
+const ctx = canvas.getContext("2d");
+
+let width = canvas.width = window.innerWidth;
+let height = canvas.height = window.innerHeight;
+
+const nodes = [];
+const nodeCount = 50;
+
+// Node class
+class Node {
+    constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.2;
+        this.vy = (Math.random() - 0.5) * 0.2;
+        this.radius = 2 + Math.random() * 0.5;
+    }
+
+    move() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.x < 0 || this.x > width) this.vx *= -1;
+        if (this.y < 0 || this.y > height) this.vy *= -1;
+    }
+
+    draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
+        ctx.fill();
+    }
+}
+
+// Create nodes
+for (let i = 0; i < nodeCount; i++) {
+    nodes.push(new Node());
+}
+
+// Draw edges between close nodes
+function drawEdges() {
+    for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+            const dx = nodes[i].x - nodes[j].x;
+            const dy = nodes[i].y - nodes[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 120) { // max distance to connect
+                ctx.beginPath();
+                ctx.moveTo(nodes[i].x, nodes[i].y);
+                ctx.lineTo(nodes[j].x, nodes[j].y);
+                ctx.strokeStyle = "rgba(255,255,255,0.2)"; // white lines
+                ctx.lineWidth = 0.5;
+                ctx.stroke();
+            }
+        }
+    }
+}
+
+// Animation loop
+function animate() {
+    ctx.clearRect(0, 0, width, height);
+    nodes.forEach(node => {
+        node.move();
+        node.draw();
+    });
+    drawEdges();
+    requestAnimationFrame(animate);
+}
+
+animate();
+
+// Resize canvas on window resize
+window.addEventListener("resize", () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+});
+</script>
+
+
+</body>
+</html>

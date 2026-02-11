@@ -1,0 +1,58 @@
+/* Grid for interest cards */
+.interests-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 200px); /* exactly 4 columns of fixed width */
+    justify-content: center;                 /* center the grid horizontally */
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Interest cards */
+.interest-card {
+    background: var(--bg-card);
+    border-radius: 12px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* text anchored at bottom */
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+    color: var(--text-main);
+    border: 2px solid var(--accent);
+    transition: transform 0.3s ease;
+}
+
+.interest-card img {
+    width: 40px;
+    margin-bottom: auto;
+}
+
+.interest-card span {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Hover effect */
+.interest-card:hover {
+    transform: translateY(-4px);
+}
+
+/* Responsive: reduce columns on smaller screens */
+@media (max-width: 1000px) {
+    .interests-grid {
+        grid-template-columns: repeat(3, 200px);
+    }
+}
+
+@media (max-width: 750px) {
+    .interests-grid {
+        grid-template-columns: repeat(2, 200px);
+    }
+}
+
+@media (max-width: 500px) {
+    .interests-grid {
+        grid-template-columns: 1fr;
+    }
+}
