@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Titanic Data Analysis</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<canvas id="bg-canvas"></canvas>
+
+<!-- ===== Header ===== -->
+<header class="header">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html#about">About</a>
+            <a href="index.html#projects">Projects</a>
+            <!--<a href="index.html#interests">Interests</a>-->
+            <a href="index.html#connect">Connect</a>
+        </div>
+    </nav>
+</header>
+
+<div class="container">
+
+<!-- ===== Titanic Project Header Image ===== -->
+<section class="project-header">
+    <img src="images/titanic-ss/titanic.png" alt="Titanic Dataset Analysis">
+    <div class="project-title-overlay">
+        <h1>Titanic Data Analysis</h1>
+    </div>
+</section>
+<!-- ===== Dataset ===== -->
+<section id="about">
+    <h2 class="section-title">Dataset Overview</h2>
+
+    <div class="dataset-box">
+        <p>
+            This dataset contains passenger-level data from the 
+            <span class="accent-text">Titanic disaster</span>.
+        </p>
+
+        <p style="margin-top:10px;">
+            Dataset Source: 
+            <a href="https://www.kaggle.com/datasets/heptapod/titanic" target="_blank" style="color:#259a57;">
+                View on Kaggle
+            </a>
+        </p>
+
+        <ul>
+            <li><b>PassengerId:</b> Unique identifier</li>
+            <li><b>Survived:</b> 1 = survived, 0 = not</li>
+            <li><b>Pclass:</b> Passenger class</li>
+            <li><b>Sex:</b> Gender</li>
+            <li><b>Age:</b> Age</li>
+            <li><b>SibSp / Parch:</b> Family onboard</li>
+            <li><b>Fare:</b> Ticket price</li>
+            <li><b>Embarked:</b> Boarding port</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ===== Setup ===== -->
+<section id="setup">
+    <h2 class="section-title">Setup</h2>
+
+    <div class="query-block">
+        <div class="sql-code"><pre>
+import pandas as pd
+import sqlite3
+
+df = pd.read_csv("data/titanic-data.csv")
+
+conn = sqlite3.connect("titanic.db")
+df.to_sql("titanic", conn, if_exists="replace", index=False)
+        </pre></div>
+
+        <div class="query-img">
+            <img src="images/titanic-ss/setup.png">
+        </div>
+    </div>
+</section>
+
+<!-- ===== Queries ===== -->
+<section id="queries">
+<h2 class="section-title">SQL Analysis</h2>
+
+<!-- 1 -->
+<div class="query-block">
+
+    <div class="query-title">
+        1. <span>Total male and female passengers</span>
+    </div>
+
+    <div class="query-row">
+
+        <!-- LEFT: CODE -->
+        <div class="sql-code">
+<pre>
+SELECT Sex, COUNT(*) 
+FROM titanic 
+GROUP BY Sex;
+</pre>
+        </div>
+
+        <!-- RIGHT: IMAGE -->
+        <div class="query-img">
+            <img src="images/titanic-ss/q1.png">
+        </div>
+
+    </div>
+
+</div>
+<!-- 2 -->
+<div class="query-block">
+<div class="query-title">2. <span>Overall survival rate</span></div>
+<div class="query-row">
+<div class="sql-code"><pre>
+SELECT ROUND(AVG(Survived)*100,2) FROM titanic;
+</pre></div>
+<div class="query-img"><img src="images/titanic-ss/q3.png"></div>
+</div>
+</div>
+
+<!-- 3 -->
+<div class="query-block">
+<div class="query-title">3. <span>Survival by gender</span></div>
+<div class="query-row">
+<div class="sql-code"><pre>
+SELECT Sex, COUNT(*), SUM(Survived),
+ROUND(AVG(Survived)*100,2)
+FROM titanic GROUP BY Sex;
+</pre></div>
+<div class="query-img"><img src="images/titanic-ss/q4.png"></div>
+</div>
+</div>
+
+<!-- 4 -->
+<div class="query-block">
+<div class="query-title">4. <span>Survival by class</span></div>
+<div class="query-row">
+<div class="sql-code"><pre>
+SELECT Pclass, COUNT(*), SUM(Survived),
+ROUND(AVG(Survived)*100,2)
+FROM titanic GROUP BY Pclass;
+</pre></div>
+<div class="query-img"><img src="images/titanic-ss/q5.png"></div>
+</div>
+</div>
+
+<!-- 5 -->
+<div class="query-block">
+<div class="query-title">5. <span>Average fare per class</span></div>
+<div class="query-row">
+<div class="sql-code"><pre>
+SELECT Pclass, ROUND(AVG(Fare),2)
+FROM titanic GROUP BY Pclass;
+</pre></div>
+<div class="query-img"><img src="images/titanic-ss/q6.png"></div>
+</div>
+</div>
+
+<!-- 6 -->
+<div class="query-block">
+<div class="query-title">6. <span>Average age (survived vs not)</span></div>
+<div class="query-row">
+<div class="sql-code"><pre>
+SELECT Survived, ROUND(AVG(Age),2)
+FROM titanic GROUP BY Survived;
+</pre></div>
+<div class="query-img"><img src="images/titanic-ss/q7.png"></div>
+</div>
+</div>
+
+<!-- 7 -->
+<div class="query-block">
+<div class="query-title">7. <span>Survival by gender & class</span></div>
+<div class="query-row">
+<div class="sql-code"><pre>
+SELECT Pclass, Sex, COUNT(*), SUM(Survived),
+ROUND(AVG(Survived)*100,2)
+FROM titanic GROUP BY Pclass, Sex;
+</pre></div>
+<div class="query-img"><img src="images/titanic-ss/q8.png"></div>
+</div>
+</div>
+
+<!-- 8 -->
+<div class="query-block">
+<div class="query-title">8. <span>Paid above avg fare & survived</span></div>
+<div class="query-row">
+<div class="sql-code"><pre>
+SELECT * FROM titanic
+WHERE Fare > (SELECT AVG(Fare) FROM titanic)
+AND Survived=1;
+</pre></div>
+<div class="query-img"><img src="images/titanic-ss/q9.png"></div>
+</div>
+</div>
+
+<!-- 9 -->
+<div class="query-block">
+<div class="query-title">9. <span>Top 5 highest fares</span></div>
+<div class="query-row">
+<div class="sql-code"><pre>
+SELECT * FROM titanic ORDER BY Fare DESC LIMIT 5;
+</pre></div>
+<div class="query-img"><img src="images/titanic-ss/q10.png"></div>
+</div>
+</div>
+
+
+
+<!-- 12 -->
+<div class="query-block">
+<div class="query-title">12. <span>Survival by fare range</span></div>
+<div class="query-row">
+<div class="sql-code"><pre>
+SELECT CASE
+WHEN Fare < 10 THEN '0-10'
+WHEN Fare < 50 THEN '10-50'
+WHEN Fare < 100 THEN '50-100'
+ELSE '100+' END,
+COUNT(*), SUM(Survived),
+ROUND(AVG(Survived)*100,2)
+FROM titanic GROUP BY 1;
+</pre></div>
+<div class="query-img"><img src="images/titanic-ss/q13.png"></div>
+</div>
+</div>
+
+<!-- 13 -->
+<div class="query-block">
+<div class="query-title">13. <span>Family size effect</span></div>
+<div class="query-row">
+<div class="sql-code"><pre>
+SELECT (SibSp+Parch), COUNT(*), SUM(Survived),
+ROUND(AVG(Survived)*100,2)
+FROM titanic GROUP BY 1;
+</pre></div>
+<div class="query-img"><img src="images/titanic-ss/q14.png"></div>
+</div>
+</div>
+
+<!-- 14 -->
+<div class="query-block">
+<div class="query-title">14. <span>Alone vs family</span></div>
+<div class="query-row">
+<div class="sql-code"><pre>
+SELECT CASE WHEN (SibSp+Parch)=0 THEN 'Alone'
+ELSE 'Family' END,
+COUNT(*), SUM(Survived),
+ROUND(AVG(Survived)*100,2)
+FROM titanic GROUP BY 1;
+</pre></div>
+<div class="query-img"><img src="images/titanic-ss/q15.png"></div>
+</div>
+</div>
+
+
+
+<!-- 16 -->
+<div class="query-block">
+<div class="query-title">16. <span>Family size buckets</span></div>
+<div class="query-row">
+<div class="sql-code"><pre>
+SELECT CASE
+WHEN (SibSp+Parch)=0 THEN 'Alone'
+WHEN (SibSp+Parch)<=3 THEN 'Small'
+ELSE 'Large' END,
+COUNT(*), SUM(Survived),
+ROUND(AVG(Survived)*100,2)
+FROM titanic GROUP BY 1;
+</pre></div>
+<div class="query-img"><img src="images/titanic-ss/q17.png"></div>
+</div>
+</div>
+
+<!-- 17 -->
+<div class="query-block">
+<div class="query-title">17. <span>Survival by embarkation</span></div>
+<div class="query-row">
+<div class="sql-code"><pre>
+SELECT Embarked, COUNT(*), SUM(Survived),
+ROUND(AVG(Survived)*100,2)
+FROM titanic GROUP BY Embarked;
+</pre></div>
+<div class="query-img"><img src="images/titanic-ss/q18.png"></div>
+</div>
+</div>
+
+<!-- 18 -->
+<div class="query-block">
+<div class="query-title">18. <span>Survived & above class avg fare</span></div>
+<div class="query-row">
+<div class="sql-code"><pre>
+SELECT * FROM titanic
+WHERE Survived=1 AND Fare>(
+SELECT AVG(Fare) FROM titanic t2
+WHERE t2.Pclass=titanic.Pclass)
+LIMIT 10;
+</pre></div>
+<div class="query-img"><img src="images/titanic-ss/q18.png"></div>
+</div>
+</div>
+
+</section>
+
+</div>
+
+<footer>
+    <div class="connect-text">
+        Titanic Data Analysis • SQL + Python Project
+    </div>
+</footer>
+
+</body>
+</html>
