@@ -1,0 +1,432 @@
+
+/* =========================
+   PROJECT PAGE OVERRIDES
+========================= */
+
+body {
+    background: #0b0f17;
+    color: #eaeaea;
+    line-height: 1.7;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    margin-top: 10px;
+}
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.section-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 40px 0 15px;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.project-hero {
+    position: relative;
+    height: 420px;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.project-hero img {
+    width: 100%;
+    height: 85%;
+    object-fit: cover;
+    filter: brightness(0.55);
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-top: 10px;
+}
+
+.hero-overlay h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 5px;
+    border-radius: 0 8px 8px 0;
+    display: inline-block;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* =========================
+   TECH STACK
+========================= */
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 0px;
+    padding-left: 20px;
+    justify-content: flex-start;
+}
+
+.tech-stack span {
+    font-size: 12px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.12);
+    transition: 0.25s ease;
+    cursor: default;
+}
+
+.tech-stack span:hover {
+    transform: translateY(-2px);
+}
+
+.tech-stack .sql {
+    background: rgba(77, 163, 255, 0.15);
+    color: #7fc4ff;
+    border-color: rgba(77, 163, 255, 0.35);
+}
+
+.tech-stack .python {
+    background: rgba(255, 210, 77, 0.12);
+    color: #ffd86b;
+    border-color: rgba(255, 210, 77, 0.35);
+}
+
+.tech-stack .powerbi {
+    background: rgba(80, 200, 120, 0.12);
+    color: #6ee7a2;
+    border-color: rgba(80, 200, 120, 0.35);
+}
+
+.tech-stack .data {
+    background: rgba(167, 139, 250, 0.12);
+    color: #c4b5fd;
+    border-color: rgba(167, 139, 250, 0.35);
+}
+
+/* =========================
+   QUERY SYSTEM (MAIN LAYOUT)
+========================= */
+
+.query {
+    margin-bottom: 35px;
+    padding: 10px;
+    transition: 0.25s ease;
+}
+
+.query:hover {
+    background: rgba(255,255,255,0.02);
+    transform: translateY(-3px);
+}
+
+.query-title {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* GRID: SQL + IMAGE */
+.query-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    align-items: start;
+}
+
+/* =========================
+   SQL CODE PANEL
+========================= */
+
+.sql-code {
+    background: linear-gradient(145deg, #0c1320, #0a0f1a);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 16px;
+    position: relative;
+}
+
+.sql-code::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 12px;
+    bottom: 12px;
+    width: 3px;
+    background: linear-gradient(#4da3ff, #7cc1ff);
+    border-radius: 4px;
+}
+
+.sql-code pre {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #cfe3ff;
+    font-family: Consolas, monospace;
+    white-space: pre-wrap;
+}
+
+/* =========================
+   PYTHON CODE PANEL
+========================= */
+
+.python-code {
+    background: linear-gradient(145deg, #0c1320, #0a0f1a);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 16px;
+    position: relative;
+    margin: 20px 0;
+}
+
+.python-code::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 12px;
+    bottom: 12px;
+    width: 3px;
+    background: linear-gradient(#4da3ff, #7cc1ff);
+    border-radius: 4px;
+}
+
+.python-code pre {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #cfe3ff;
+    font-family: Consolas, monospace;
+    white-space: pre-wrap;
+}
+
+/* =========================
+   QUERY IMAGE (RAW - NO BOX)
+========================= */
+
+.query-img {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.query-img img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* =========================
+   DASHBOARD IMAGE
+========================= */
+
+section img.full-img {
+    display: block;
+    margin: 25px auto;
+    max-width: 950px;
+    border-radius: 16px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.6);
+}
+section .muted {
+    text-align: center;
+}
+
+/* =========================
+   INSIGHTS CARD
+========================= */
+
+.card {
+    border-radius: 16px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+    padding: 20px;
+    margin: 20px 0;
+}
+
+/* =========================
+   LINKS
+========================= */
+
+a {
+    color: #4da3ff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #7cc1ff;
+    text-decoration: underline;
+}
+
+/* =========================
+   DATASET LINKS
+========================= */
+
+.dataset-links {
+    display: flex;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+/* =========================
+   DATASET SECTION BEAUTIFICATION
+========================= */
+
+.dataset-section {
+    margin-bottom: 40px;
+}
+
+.dataset-intro {
+    margin-bottom: 25px;
+}
+
+.dataset-intro p {
+    margin-bottom: 15px;
+    line-height: 1.7;
+    color: var(--text-main);
+}
+
+.dataset-meta {
+    margin: 25px 0;
+}
+
+.link-item {
+    margin-bottom: 12px;
+}
+
+.link-with-icon {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: var(--text-main);
+}
+
+.link-with-icon:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.15);
+    transform: translateY(-1px);
+}
+
+.link-icon {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+
+.link-icon-emoji {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+}
+
+.link-text {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.dataset-features {
+    margin: 30px 0;
+}
+
+.dataset-features h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.feature-item {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 15px;
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-2px);
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.12);
+}
+
+.feature-name {
+    font-weight: 600;
+    color: var(--accent);
+    font-size: 15px;
+    margin-bottom: 5px;
+    font-family: 'Consolas', 'Monaco', monospace;
+}
+
+.feature-desc {
+    color: var(--text-dim);
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+
+/* =========================
+   GOAL SECTION
+========================= */
+
+.goal-section {
+    margin-bottom: 40px;
+}
+
+.goal-content {
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.copyright {
+    font-size: 12px;
+    color: var(--text-dim);
+    opacity: 0.8;
+    letter-spacing: 0.3px;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+@media (max-width: 900px) {
+    .query-row {
+        grid-template-columns: 1fr;
+    }
+}

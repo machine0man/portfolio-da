@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 | Page Not Found</title>
+
+    <style>
+        :root {
+            --bg-main: #222634;
+            --bg-card: rgba(255, 255, 255, 0.05);
+            --accent: #259a57;
+            --text-main: #f1f5f9;
+            --text-dim: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg-main);
+            color: var(--text-main);
+            min-height: 100vh;
+        }
+
+        /* Background canvas feel */
+        .bg {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at top, rgba(37,154,87,0.2), transparent 50%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .error-box {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            font-size: 90px;
+            color: var(--accent);
+        }
+
+        h2 {
+            margin-top: 10px;
+            font-size: 26px;
+        }
+
+        p {
+            margin: 15px 0;
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 18px;
+            border-radius: 999px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        /* Quick links like your portfolio */
+        .links {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 20px;
+            border-radius: 14px;
+            text-align: left;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .card h3 {
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .card a {
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .card p {
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<div class="container">
+
+    <div class="error-box">
+        <h1>404</h1>
+        <h2>Page Not Found</h2>
+
+        <p>
+            The page you're looking for doesn’t exist or may have been moved.
+            But you can still explore my work below.
+        </p>
+
+        <a class="btn" href="index.html">← Back to Home</a>
+    </div>
+
+    <!-- MORE CONTENT (important improvement) -->
+    <div class="links">
+
+        <div class="card">
+            <h3>Data Projects</h3>
+            <p>SQL, Python, Tableau dashboards, and analytics insights.</p>
+            <a href="index.html#projects">View Projects →</a>
+        </div>
+
+        <div class="card">
+            <h3>Technical Work</h3>
+            <p>Unity games, AR projects, and system design builds.</p>
+            <a href="index.html#projects">Explore Games →</a>
+        </div>
+
+        <div class="card">
+            <h3>Skills</h3>
+            <p>SQL, Python, Excel, Power BI, AWS, Azure.</p>
+            <a href="index.html#about">See Skills →</a>
+        </div>
+
+        <div class="card">
+            <h3>Connect</h3>
+            <p>GitHub, LinkedIn, and social profiles.</p>
+            <a href="index.html#connect">Get in Touch →</a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

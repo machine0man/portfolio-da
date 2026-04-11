@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,18 +9,19 @@
 </head>
 
 <canvas id="bg-canvas"></canvas>
+
 <body>
 
 
-    
+
 
     <!-- ===== Header ===== -->
     <header class="header">
         <nav class="navbar">
             <div class="nav-container">
-                <a href="#about">About</a>
+                <a href="#about-skills-wrapper">About</a>
                 <a href="#projects">Projects</a>
-               <!-- <a href="interests.html">Interests</a>-->
+                <!-- <a href="interests.html">Interests</a>-->
                 <a href="#connect">Connect</a>
             </div>
         </nav>
@@ -27,78 +29,144 @@
 
     <main>
 
-        <!-- ===== About Section ===== -->
-        <section id="about" class="about-section">
-            <div class="container">
+        <!-- ===================== -->
+        <!-- ABOUT + SKILLS WRAP -->
+        <!-- ===================== -->
+        <section class="about-skills-wrapper" id="about-skills-wrapper">
 
-                <h2 class="section-title">About</h2>
+            <div class="container">
 
                 <div class="about-layout">
 
-                    <!-- Left Side -->
+                    <!-- ===================== -->
+                    <!-- ABOUT (LEFT) -->
+                    <!-- ===================== -->
                     <div class="about-left">
+
+                        <h2 class="section-title">About</h2>
 
                         <div class="profile-image">
                             <img src="images/imgimg.png" alt="Harjot Singh">
                         </div>
 
-                      <div class="bio">
-    <h1>Harjot Singh</h1>
-    <p>
-        I'm a passionate <span class="accent-text">Data Analyst</span> with experience in 
-        <span class="accent-text">SQL</span>, <span class="accent-text">Python</span>, 
-        and <span class="accent-text">advanced analytics</span>. I enjoy transforming raw data 
-        into meaningful insights to support <span class="accent-text">data-driven decision-making</span>. 
-        I have a strong interest in <span class="accent-text">cloud platforms</span> and building 
-        solutions that solve real-world problems. Outside of work, I enjoy 
-        <span class="accent-text">competitive gaming</span>, 
-        and diving into <span class="accent-text">psychology</span> and <span class="accent-text">philosophy</span>. 
-        I'm always eager to <span class="accent-text">learn</span>, experiment, and connect with 
-        like-minded individuals to grow both professionally and personally.
-    </p>
-</div>
+                        <div class="bio">
+                            <h1>Harjot Singh</h1>
 
+                            <p>
+                                I'm a passionate <span class="accent-text">Data Analyst</span> with strong experience in
+                                <span class="accent-text">SQL</span>, <span class="accent-text">Python</span>, and <span
+                                    class="accent-text">data visualization</span>.
+
+                                I enjoy working with data to find patterns, solve problems, and support better
+                                decision-making.
+
+                                I also have exposure to <span class="accent-text">machine learning</span> and growing
+                                interest in <span class="accent-text">Data Science</span>.
+
+                                Alongside analytics, I have a background in <span class="accent-text">software
+                                    development</span> and <span class="accent-text">game development</span>, which
+                                helps me think in a more structured and creative way.
+
+                                Outside of work, I enjoy <span class="accent-text">competitive gaming</span>, and
+                                exploring <span class="accent-text">psychology</span> and <span
+                                    class="accent-text">philosophy</span>.
+
+                                I'm always learning and improving, and I like building things that actually work in the
+                                real world.
+                            </p>
+                        </div>
 
                     </div>
 
-                    <!-- Right Side -->
+                    <!-- ===================== -->
+                    <!-- SKILLS (RIGHT) -->
+                    <!-- ===================== -->
                     <div class="about-right">
 
-                        <div class="skills-grid">
+                        <div class="skills-section">
 
-                            <div class="skill-card">
-                                <img src="images/sql.png" alt="SQL">
-                                <span>SQL</span>
+                            <h2 class="section-title">Skills</h2>
+
+                            <!-- TOGGLE BUTTONS -->
+                            <div class="toggle-buttons">
+
+                                <button class="toggle-btn active category-data" onclick="showSkills('data')">
+                                    Data Analytics
+                                </button>
+
+                                <button class="toggle-btn category-ml" onclick="showSkills('ml')">
+                                    AI / ML
+                                </button>
+
+                                <button class="toggle-btn category-tech" onclick="showSkills('tech')">
+                                    Technical
+                                </button>
+
                             </div>
 
-                            <div class="skill-card">
-                                <img src="images/python.png" alt="Python">
-                                <span>Python</span>
+                            <!-- ===================== -->
+                            <!-- DATA ANALYTICS -->
+                            <!-- ===================== -->
+                            <div id="data-skills" class="skills-grid">
+
+                                <div class="skill-card"><img src="images/skill-icons/sql.png"><span>SQL</span></div>
+                                <div class="skill-card"><img src="images/skill-icons/python.png"><span>Python</span>
+                                </div>
+                                <div class="skill-card"><img src="images/skill-icons/pandas.png"><span>Pandas</span>
+                                </div>
+                                <div class="skill-card"><img src="images/skill-icons/numpy.png"><span>NumPy</span></div>
+                                <div class="skill-card"><img src="images/skill-icons/excel.png"><span>Excel</span></div>
+                                <div class="skill-card"><img src="images/skill-icons/tableau.png"><span>Tableau</span>
+                                </div>
+                                <div class="skill-card"><img src="images/skill-icons/powerbi.png"><span>Power BI</span>
+                                </div>
+                                <div class="skill-card"><img
+                                        src="images/skill-icons/azure-databricks.png"><span>Databricks</span></div>
+                                <div class="skill-card"><img src="images/skill-icons/azure.png"><span>Azure</span></div>
+                                <div class="skill-card"><img src="images/skill-icons/aws.png"><span>AWS</span></div>
+
                             </div>
 
-                            <div class="skill-card">
-                                <img src="images/excel.png" alt="Excel">
-                                <span>Excel</span>
+                            <!-- ===================== -->
+                            <!-- AI / ML -->
+                            <!-- ===================== -->
+                            <div id="ml-skills" class="skills-grid" style="display:none;">
+
+                                <div class="skill-card"><img src="images/skill-icons/python.png"><span>Python</span>
+                                </div>
+                                <div class="skill-card"><img src="images/skill-icons/pandas.png"><span>Pandas</span>
+                                </div>
+                                <div class="skill-card"><img src="images/skill-icons/numpy.png"><span>NumPy</span></div>
+                                <div class="skill-card"><img
+                                        src="images/skill-icons/scikit-learn.png"><span>Scikit-learn</span></div>
+                                <div class="skill-card"><img
+                                        src="images/skill-icons/tensorflow.png"><span>TensorFlow</span></div>
+                                <div class="skill-card"><img src="images/skill-icons/pytorch.png"><span>PyTorch</span>
+                                </div>
+                                <div class="skill-card"><img src="images/skill-icons/huggingface.png"><span>Hugging
+                                        Face</span></div>
+                                <div class="skill-card"><img src="images/skill-icons/fastapi.png"><span>FastAPI</span>
+                                </div>
+
                             </div>
 
-                            <div class="skill-card">
-                                <img src="images/tableau.png" alt="Tableau">
-                                <span>Tableau</span>
-                            </div>
+                            <!-- ===================== -->
+                            <!-- TECHNICAL -->
+                            <!-- ===================== -->
+                            <div id="tech-skills" class="skills-grid" style="display:none;">
 
-                            <div class="skill-card">
-                                <img src="images/powerbi.png" alt="Power BI">
-                                <span>Power BI</span>
-                            </div>
+                                <div class="skill-card"><img src="images/skill-icons/unity.png"><span>Unity 3D</span>
+                                </div>
+                                <div class="skill-card"><img src="images/skill-icons/csharp.png"><span>C#</span></div>
+                                <div class="skill-card"><img src="images/skill-icons/python.png"><span>Python</span>
+                                </div>
+                                <div class="skill-card"><img src="images/skill-icons/cpp.png"><span>C++</span></div>
+                                <div class="skill-card"><img src="images/skill-icons/linux.png"><span>Linux</span></div>
+                                <div class="skill-card"><img src="images/skill-icons/github.png"><span>Git /
+                                        GitHub</span></div>
+                                <div class="skill-card"><img
+                                        src="images/skill-icons/photoshop.png"><span>Photoshop</span></div>
 
-                            <div class="skill-card">
-                                <img src="images/aws.png" alt="AWS">
-                                <span>AWS</span>
-                            </div>
-
-                            <div class="skill-card">
-                                <img src="images/azure.jpg" alt="Azure">
-                                <span>Azure</span>
                             </div>
 
                         </div>
@@ -114,147 +182,283 @@
         <section id="projects" class="projects-section">
             <div class="container">
 
-                <h2 class="section-title">Projects</h2>
+                <h2 class="section-title">Data Analytics Projects</h2>
 
-               <div class="projects-grid">
+                <div class="projects-grid">
 
-    <!-- Titanic Analysis Project -->
-    <a href="titanic-surv-rate.html" target="_blank" class="project-card">
-        <img src="images/titanic-ss/titanic.png" alt="Titanic Analysis Project" 
-             style="width:100%; border-radius:8px; margin-bottom:10px;">
-        <h3>Titanic Dataset Analysis</h3>
-        <p>
-            Performed SQL queries on Titanic passenger data to analyze survival rates 
-            by gender, class, fare, and family size. Visualized insights and results 
-            with screenshots for each query.
-        </p>
-    </a>
+                    <!-- ===================== -->
+                    <!-- DATA ANALYTICS PROJECTS -->
+                    <!-- ===================== -->
 
-    <!-- Existing Projects -->
-    <a href="sales_dashboard.html" target="_blank" class="project-card">
-        <img src="images/sales_dashboard.png" alt="Sales Analysis Dashboard" 
-             style="width:100%; border-radius:8px; margin-bottom:10px;">
-        <h3>Sales Analysis Dashboard</h3>
-        <p>
-            Built SQL queries to analyze sales trends and created interactive 
-            dashboards in Tableau to visualize KPIs and business insights.
-        </p>
-    </a>
+                    <a href="titanic-surv-rate.html" target="_blank" class="project-card">
+                        <img src="images/titanic-ss/titanic.png" alt="Titanic Analysis Project">
+                        <h3>Titanic Dataset Analysis</h3>
+                        <p>
+                            Performed SQL analysis on passenger survival data and explored patterns
+                            based on gender, class, and fare.
+                        </p>
+                    </a>
 
-    <a href="crypto_market.html" target="_blank" class="project-card">
-        <img src="images/crypto_market.png" alt="Crypto Market Analysis" 
-             style="width:100%; border-radius:8px; margin-bottom:10px;">
-        <h3>Crypto Market Analysis</h3>
-        <p>
-            Conducted Python-based analysis of cryptocurrency transaction volumes 
-            across quarters to identify growth patterns and market trends.
-        </p>
-    </a>
+                    <a href="sales_dashboard.html" target="_blank" class="project-card">
+                        <img src="images/sales_dashboard.png" alt="Sales Dashboard">
+                        <h3>Sales Analysis Dashboard</h3>
+                        <p>
+                            Built SQL queries and Tableau dashboards to visualize business KPIs and trends.
+                        </p>
+                    </a>
 
-</div>
+                    <a href="crypto_market.html" target="_blank" class="project-card">
+                        <img src="images/crypto_market.png" alt="Crypto Analysis">
+                        <h3>Crypto Market Analysis</h3>
+                        <p>
+                            Python-based analysis of cryptocurrency trends and transaction volume patterns.
+                        </p>
+                    </a>
+
+                </div>
+
+                <!-- ===================== -->
+                <!-- TECHNICAL PROJECTS -->
+                <!-- ===================== -->
+
+                <h3 class="section-title" style="margin-top:40px;">
+                    Technical Projects
+                </h3>
+
+                <div class="projects-grid">
+
+                       <a href="https://apps.apple.com/in/app/car-parking-driving-school/id1193550697" target="_blank" class="project-card">
+                        <img src="images/technical/cpds.png" alt="ICU Game">
+                        <h3>Car Parking - Driving School</h3>
+                        <p>
+                            Hyper-casual Unity game based on color-matching collision mechanics and timing survival
+                            gameplay.
+                        </p>
+                    </a>
+
+                    <a href="https://github.com/machine0man/ICollideYou" target="_blank" class="project-card">
+                        <img src="images/technical/proj1.png" alt="ICU Game">
+                        <h3>ICU (I Collide U)</h3>
+                        <p>
+                            Hyper-casual Unity game based on color-matching collision mechanics and timing survival
+                            gameplay.
+                        </p>
+                    </a>
+
+                    <a href="https://github.com/machine0man" target="_blank" class="project-card">
+                        <img src="images/technical/proj2.png" alt="RazeRun">
+                        <h3>Toitsu [RazeRun]</h3>
+                        <p>
+                            AR-style fitness game inspired by Pokémon GO, built for Microsoft Imagine Cup 2018.
+                        </p>
+                    </a>
+
+                    <a href="shttps://github.com/machine0man" target="_blank" class="project-card">
+                        <img src="images/technical/proj3.png" alt="Slingo">
+                        <h3>Slingo</h3>
+                        <p>
+                            Physics-based destruction puzzle game using slingshot mechanics and bomb interactions.
+                        </p>
+                    </a>
+
+                    <a href="https://github.com/machine0man" target="_blank" class="project-card">
+                        <img src="images/technical/proj4.png" alt="Burning War">
+                        <h3>Burning War</h3>
+                        <p>
+                            Multiplayer strategy game where I implemented alliance and gameplay systems.
+                        </p>
+                    </a>
+
+                    <a href="https://github.com/machine0man" target="_blank" class="project-card">
+                        <img src="images/technical/proj5.png" alt="Moove">
+                        <h3>Moove</h3>
+                        <p>
+                            2048-style logic puzzle game built with full gameplay and system design.
+                        </p>
+                    </a>
+
+                </div>
 
             </div>
         </section>
 
     </main>
 
-   <footer>
-    <p id = "connect"class="connect">Connect with me</p>
-    <div class="social-links">
-        <a href="https://github.com/machine0man" target="_blank" rel="noopener">
-            <img src="images/github.png" alt="GitHub"> GitHub
-        </a> 
-        <a href="https://www.linkedin.com/in/machine0man" target="_blank" rel="noopener">
-            <img src="images/linkedin.png" alt="LinkedIn"> LinkedIn
-        </a> 
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener">
-            <img src="images/instagram.png" alt="Instagram"> Instagram
-        </a>
-    </div>
-</footer>
+    <footer>
+        <p id="connect" class="connect">Let’s connect</p>
+
+        <p class="connect-subtext">
+            Open to opportunities • Data Analyst / AI / Developer
+        </p>
+
+        <div class="social-links">
+
+            <a href="mailto:harjotmadhopuri@gmail.com" class="email">
+                📧 Email
+            </a>
+
+            <a href="https://github.com/machine0man" target="_blank">
+                <img src="images/skill-icons/github.png"> GitHub
+            </a>
+
+            <a href="https://www.linkedin.com/in/machine0man" target="_blank">
+                <img src="images/skill-icons/linkedin.png"> LinkedIn
+            </a>
+
+            <a href="https://www.instagram.com/" target="_blank">
+                <img src="images/skill-icons/instagram.png"> Instagram
+            </a>
+
+        </div>
+        <p
+            style="font-size: 12px; color: var(--text-dim); opacity: 0.8; letter-spacing: 0.3px; text-align: center; width: 100%;">
+            © 2026 Harjot Singh • Built with passion
+        </p>
+
+    </footer>
 
 
+    <script>
+        const canvas = document.getElementById("bg-canvas");
+        const ctx = canvas.getContext("2d");
 
-   <script>
-const canvas = document.getElementById("bg-canvas");
-const ctx = canvas.getContext("2d");
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
 
-let width = canvas.width = window.innerWidth;
-let height = canvas.height = window.innerHeight;
+        const nodes = [];
+        const nodeCount = 50;
 
-const nodes = [];
-const nodeCount = 50;
+        // Node class
+        class Node {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.2;
+                this.vy = (Math.random() - 0.5) * 0.2;
+                this.radius = 2 + Math.random() * 0.5;
+            }
 
-// Node class
-class Node {
-    constructor() {
-        this.x = Math.random() * width;
-        this.y = Math.random() * height;
-        this.vx = (Math.random() - 0.5) * 0.2;
-        this.vy = (Math.random() - 0.5) * 0.2;
-        this.radius = 2 + Math.random() * 0.5;
-    }
+            move() {
+                this.x += this.vx;
+                this.y += this.vy;
 
-    move() {
-        this.x += this.vx;
-        this.y += this.vy;
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+            }
 
-        if (this.x < 0 || this.x > width) this.vx *= -1;
-        if (this.y < 0 || this.y > height) this.vy *= -1;
-    }
-
-    draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
-        ctx.fill();
-    }
-}
-
-// Create nodes
-for (let i = 0; i < nodeCount; i++) {
-    nodes.push(new Node());
-}
-
-// Draw edges between close nodes
-function drawEdges() {
-    for (let i = 0; i < nodes.length; i++) {
-        for (let j = i + 1; j < nodes.length; j++) {
-            const dx = nodes[i].x - nodes[j].x;
-            const dy = nodes[i].y - nodes[j].y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 120) { // max distance to connect
+            draw() {
                 ctx.beginPath();
-                ctx.moveTo(nodes[i].x, nodes[i].y);
-                ctx.lineTo(nodes[j].x, nodes[j].y);
-                ctx.strokeStyle = "rgba(255,255,255,0.2)"; // white lines
-                ctx.lineWidth = 0.5;
-                ctx.stroke();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
+                ctx.fill();
             }
         }
-    }
-}
 
-// Animation loop
-function animate() {
-    ctx.clearRect(0, 0, width, height);
-    nodes.forEach(node => {
-        node.move();
-        node.draw();
-    });
-    drawEdges();
-    requestAnimationFrame(animate);
-}
+        // Create nodes
+        for (let i = 0; i < nodeCount; i++) {
+            nodes.push(new Node());
+        }
 
-animate();
+        // Draw edges between close nodes
+        function drawEdges() {
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const dx = nodes[i].x - nodes[j].x;
+                    const dy = nodes[i].y - nodes[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 120) { // max distance to connect
+                        ctx.beginPath();
+                        ctx.moveTo(nodes[i].x, nodes[i].y);
+                        ctx.lineTo(nodes[j].x, nodes[j].y);
+                        ctx.strokeStyle = "rgba(255,255,255,0.2)"; // white lines
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
 
-// Resize canvas on window resize
-window.addEventListener("resize", () => {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-});
-</script>
+        // Animation loop
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            nodes.forEach(node => {
+                node.move();
+                node.draw();
+            });
+            drawEdges();
+            requestAnimationFrame(animate);
+        }
 
+        animate();
+
+        // Resize canvas on window resize
+        window.addEventListener("resize", () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        // Navigation active state
+        const navLinks = document.querySelectorAll('.nav-container a');
+        const sections = document.querySelectorAll('section');
+
+        function setActiveLink() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', setActiveLink);
+    </script>
+
+    <script>
+        function showSkills(type) {
+
+            const sections = {
+                data: document.getElementById("data-skills"),
+                ml: document.getElementById("ml-skills"),
+                tech: document.getElementById("tech-skills")
+            };
+
+            const buttons = document.querySelectorAll(".toggle-btn");
+
+            // Hide all sections
+            Object.values(sections).forEach(sec => {
+                sec.style.display = "none";
+            });
+
+            // Remove active state
+            buttons.forEach(btn => btn.classList.remove("active"));
+
+            // Show selected
+            if (type === "data") {
+                sections.data.style.display = "grid";
+                buttons[0].classList.add("active");
+            }
+
+            if (type === "ml") {
+                sections.ml.style.display = "grid";
+                buttons[1].classList.add("active");
+            }
+
+            if (type === "tech") {
+                sections.tech.style.display = "grid";
+                buttons[2].classList.add("active");
+            }
+        }
+    </script>
 
 </body>
+
 </html>
