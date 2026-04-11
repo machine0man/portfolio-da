@@ -6,6 +6,23 @@
     --text-main: #f1f5f9;
     --text-dim: #94a3b8;
     --border: #334155;
+    --navbar-bg: rgba(255, 255, 255, 0.1);
+    --navbar-border: rgba(255, 255, 255, 0.3);
+    --button-bg: rgba(255,255,255,0.08);
+    --button-text: #f1f5f9;
+}
+
+.light-theme {
+    --bg-main: #f8fafc;
+    --bg-card: rgba(255, 255, 255, 0.95);
+    --accent: #259a57;
+    --text-main: #0f172a;
+    --text-dim: #475569;
+    --border: #cbd5e1;
+    --navbar-bg: rgba(255, 255, 255, 0.92);
+    --navbar-border: rgba(148, 163, 184, 0.4);
+    --button-bg: rgba(15, 23, 42, 0.08);
+    --button-text: #0f172a;
 }
 
 /* ===== Canvas Fullscreen Background ===== */
@@ -58,17 +75,33 @@ body {
 .navbar {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    padding: 12px 50px;
+    gap: 10px;
+    padding: 6px 50px;
     border-radius: 50px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: var(--navbar-bg);
+    border: 1px solid var(--navbar-border);
     backdrop-filter: blur(12px);
     position: fixed;
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
+}
+
+.theme-toggle {
+    border: none;
+    background: var(--button-bg);
+    color: var(--button-text);
+    padding: 8px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-1px);
 }
 
 .nav-container a {

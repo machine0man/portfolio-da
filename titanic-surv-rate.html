@@ -18,6 +18,7 @@
             <a href="index.html#about">About</a>
             <a href="index.html#projects">Projects</a>
             <a href="index.html#connect">Connect</a>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light mode">☾</button>
         </div>
     </nav>
 </header>
@@ -493,6 +494,36 @@ LIMIT 10;</code></pre>
         © 2026 Harjot Singh • Built with passion
     </p>
 </footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const themeToggle = document.getElementById('theme-toggle');
+        const rootElement = document.documentElement;
+        
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            rootElement.classList.add('light-theme');
+            themeToggle.textContent = '☀';
+        } else {
+            themeToggle.textContent = '☾';
+        }
+        
+        // Toggle theme
+        themeToggle.addEventListener('click', function() {
+            const isLight = rootElement.classList.contains('light-theme');
+            if (isLight) {
+                rootElement.classList.remove('light-theme');
+                localStorage.setItem('theme', 'dark');
+                themeToggle.textContent = '☾';
+            } else {
+                rootElement.classList.add('light-theme');
+                localStorage.setItem('theme', 'light');
+                themeToggle.textContent = '☀';
+            }
+        });
+    });
+</script>
 
 </body>
 </html>

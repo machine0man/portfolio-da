@@ -23,6 +23,7 @@
                 <a href="#projects">Projects</a>
                 <!-- <a href="interests.html">Interests</a>-->
                 <a href="#connect">Connect</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light mode">☾</button>
             </div>
         </nav>
     </header>
@@ -456,6 +457,32 @@
                 sections.tech.style.display = "grid";
                 buttons[2].classList.add("active");
             }
+        }
+
+        const themeToggle = document.getElementById('theme-toggle');
+        const rootElement = document.documentElement;
+        const savedTheme = localStorage.getItem('theme');
+
+        function setTheme(theme) {
+            if (theme === 'light') {
+                rootElement.classList.add('light-theme');
+                themeToggle.textContent = '☀';
+                themeToggle.setAttribute('aria-label', 'Switch to dark mode');
+            } else {
+                rootElement.classList.remove('light-theme');
+                themeToggle.textContent = '☾';
+                themeToggle.setAttribute('aria-label', 'Switch to light mode');
+            }
+            localStorage.setItem('theme', theme);
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const isLight = rootElement.classList.contains('light-theme');
+            setTheme(isLight ? 'dark' : 'light');
+        });
+
+        if (savedTheme) {
+            setTheme(savedTheme);
         }
     </script>
 

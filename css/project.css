@@ -9,6 +9,83 @@ body {
     line-height: 1.7;
 }
 
+.light-theme body {
+    background: #f8fafc;
+    color: #0f172a;
+}
+
+.light-theme .section-title {
+    color: #0f172a;
+}
+
+.light-theme .project-hero img {
+    filter: brightness(0.9);
+}
+
+.light-theme .hero-overlay h1 {
+    color: #0f172a;
+    background: rgba(255,255,255,0.92);
+    text-shadow: none;
+}
+
+.light-theme .query:hover {
+    background: rgba(15,23,42,0.04);
+}
+
+.light-theme .sql-code,
+.light-theme .python-code {
+    background: linear-gradient(145deg, #f8fbff, #eef2ff);
+    border: 1px solid rgba(15,23,42,0.08);
+}
+
+.light-theme .sql-code pre,
+.light-theme .python-code pre {
+    color: #0f172a;
+}
+
+.light-theme .card {
+    background: rgba(15,23,42,0.03);
+    border-color: rgba(15,23,42,0.08);
+    box-shadow: 0 10px 40px rgba(15,23,42,0.15);
+}
+
+.light-theme a {
+    color: #1d4ed8;
+}
+
+.light-theme a:hover {
+    color: #2563eb;
+}
+
+.light-theme .link-with-icon {
+    background: rgba(15,23,42,0.02);
+    border-color: rgba(15,23,42,0.1);
+    color: #0f172a;
+}
+
+.light-theme .link-with-icon:hover {
+    background: rgba(15,23,42,0.05);
+    border-color: rgba(15,23,42,0.18);
+}
+
+.light-theme .feature-item {
+    background: rgba(15,23,42,0.03);
+    border-color: rgba(15,23,42,0.08);
+}
+
+.light-theme .feature-item:hover {
+    background: rgba(15,23,42,0.04);
+    border-color: rgba(15,23,42,0.12);
+}
+
+.light-theme .feature-desc,
+.light-theme .dataset-intro p,
+.light-theme .dataset-links,
+.light-theme .dataset-meta,
+.light-theme .goal-content {
+    color: #475569;
+}
+
 /* =========================
    CONTAINER
 ========================= */
