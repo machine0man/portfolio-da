@@ -87,6 +87,18 @@ body {
 }
 
 /* =========================
+   NAVBAR OVERRIDES FOR PROJECT PAGE
+========================= */
+
+.nav-container a {
+    text-decoration: none !important;
+}
+
+.nav-container a:hover {
+    text-decoration: none !important;
+}
+
+/* =========================
    CONTAINER
 ========================= */
 
