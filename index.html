@@ -14,16 +14,17 @@
 
 
 
-
     <!-- ===== Header ===== -->
     <header class="header">
+        <div class="mobile-header" id="mobileHeader"> HARJOT SINGH </div>
         <nav class="navbar">
-            <div class="nav-container">
+            <button id="menu-toggle" class="menu-toggle">☰</button>
+
+            <div class="nav-container" id="nav-menu">
                 <a href="#about-skills-wrapper">About</a>
                 <a href="#projects">Projects</a>
-                <!-- <a href="interests.html">Interests</a>-->
                 <a href="#connect">Connect</a>
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light mode">☾</button>
+                <button id="theme-toggle" class="theme-toggle">☾</button>
             </div>
         </nav>
     </header>
@@ -228,7 +229,8 @@
 
                 <div class="projects-grid">
 
-                       <a href="https://apps.apple.com/in/app/car-parking-driving-school/id1193550697" target="_blank" class="project-card">
+                    <a href="https://apps.apple.com/in/app/car-parking-driving-school/id1193550697" target="_blank"
+                        class="project-card">
                         <img src="images/technical/cpdsg.png" alt="ICU Game">
                         <h3>Car Parking - Driving School</h3>
                         <p>
@@ -485,7 +487,30 @@
             setTheme(savedTheme);
         }
     </script>
+    <script>
+        const toggle = document.getElementById("menu-toggle");
+        const menu = document.getElementById("nav-menu");
 
+        toggle.addEventListener("click", () => {
+            menu.classList.toggle("active");
+        });
+    </script>
+    <script>
+        const header = document.getElementById("mobileHeader");
+
+        window.addEventListener("scroll", () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+
+            const scrollPercent = (scrollTop / docHeight) * 100;
+
+            if (scrollPercent > 20) {
+                header.classList.add("show");
+            } else {
+                header.classList.remove("show");
+            }
+        });
+    </script>
 </body>
 
 </html>
