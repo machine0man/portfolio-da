@@ -16,16 +16,16 @@
 
     <!-- ===== Header ===== -->
     <header class="header">
-        <div class="mobile-header" id="mobileHeader"> HARJOT SINGH </div>
-        <nav class="navbar">
-            <button id="menu-toggle" class="menu-toggle">☰</button>
 
-            <div class="nav-container" id="nav-menu">
-                <a href="#about-skills-wrapper">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#connect">Connect</a>
-                <button id="theme-toggle" class="theme-toggle">☾</button>
-            </div>
+        <div class="mobile-header" id="mobileHeader"> HARJOT SINGH </div>
+
+        <button id="menu-toggle" class="menu-toggle">☰</button>
+
+        <nav class="navbar" id="nav-menu">
+            <a href="#about-skills-wrapper">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#connect">Connect</a>
+            <button id="theme-toggle" class="theme-toggle">☾</button>
         </nav>
     </header>
 
@@ -488,11 +488,11 @@
         }
     </script>
     <script>
-        const toggle = document.getElementById("menu-toggle");
-        const menu = document.getElementById("nav-menu");
+        const menuToggle = document.getElementById("menu-toggle");
+        const navbar = document.getElementById("nav-menu");
 
-        toggle.addEventListener("click", () => {
-            menu.classList.toggle("active");
+        menuToggle.addEventListener("click", () => {
+            navbar.classList.toggle("active");
         });
     </script>
     <script>
